@@ -102,7 +102,7 @@ class SignUp extends Component {
               cssClass="btn btn-outline-primary"
             />
             <GoogleLogin
-              clientId={ config.GOOGLE_CLIENT_ID}
+              clientId={config.GOOGLE_CLIENT_ID}
               render={(renderProps) => (
                 <button
                   className="btn btn-danger"
