@@ -11,7 +11,7 @@ import {
 //Trigger server API for Google Authentication
 export const oauthGoogle = data => {
   return async dispatch => {
-    const res = await axios.post('http://localhost:8000/users/oauth/google', {
+    const res = await axios.post('https://user-integers-api.herokuapp.com/users/oauth/google', {
       access_token: data
     });
 
@@ -28,7 +28,7 @@ export const oauthGoogle = data => {
 //Trigger server API for Facebook Authentication
 export const oauthFacebook = data => {
   return async dispatch => {
-    const res = await axios.post('http://localhost:8000/users/oauth/facebook', {
+    const res = await axios.post('https://user-integers-api.herokuapp.com/users/oauth/facebook', {
       access_token: data
     });
 
@@ -46,7 +46,7 @@ export const oauthFacebook = data => {
 export const signUp = data => {
   return async dispatch => {
     try {
-      const res = await axios.post('http://localhost:8000/users/signup', data);
+      const res = await axios.post('https://user-integers-api.herokuapp.com/users/signup', data);
 
       dispatch({
         type: AUTH_SIGN_UP,
@@ -68,7 +68,7 @@ export const signUp = data => {
 export const signIn = data => {
   return async dispatch => {
     try {
-      const res = await axios.post('http://localhost:8000/users/signin', data);
+      const res = await axios.post('https://user-integers-api.herokuapp.com/users/signin', data);
 
       dispatch({
         type: AUTH_SIGN_IN,
@@ -90,7 +90,7 @@ export const signIn = data => {
 export const getSecret = () => {
   return async dispatch => {
     try {
-      const res = await axios.get('http://localhost:8000/users/v1/current')
+      const res = await axios.get('https://user-integers-api.herokuapp.com/users/v1/current')
       dispatch({
         type: DASHBOARD_GET_DATA,
         payload: res.data.current_integer
