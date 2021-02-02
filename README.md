@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+## Notes
+### Front End
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [Axios](https://www.npmjs.com/package/react-axios)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Back End
+* [Node](https://nodejs.org/en/) and [Express](https://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
 
-## Available Scripts
+### Production
+* [Heroku](https://www.heroku.com/)
+* [Vercel](https://vercel.com/)
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Date
+Feb 3, 2020
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Location of deployed application
+App - <a href="https://user-integers.vercel.app/" target="_blank">https://user-integers.vercel.app/</a>
+Backend/Server -  <a href="https://user-integers-api.herokuapp.com" target="_blank">https://user-integers-api.herokuapp.com</a>
 
-### `npm test`
+## Time spent
+7-8 hours. Apart from implementing, this includes setting up the local environment with MongoDB and Node, deploying the app to heroku and vercel. Also spent some time reviewing the OAuth Implementation.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Assumptions made
+- Made assumptions for API endpoints, Database name, Deployed application name, Database selection (MongoDB), Database table columns and their data type
+- Current Integer is named 'current_integer' in database
+- App will return current integer when user logs in
 
-### `npm run build`
+## Shortcuts/Compromises made
+Yes
+- All work is done over master branch. As best practices, work should be done in seperate branch each time and then deployed to master branch.
+- Used bootstrap to style the app
+- Test cases not created
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Stretch goals attempted
+Local authentication is working and returns current integer when user sign in. 
+Tried OAuth with Facebook and Google from client. Results are not consistent and need some work.
+Though it works fine when using your own generated token for FB and Google and tested with the API on Postman.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Instructions to run assignment locally
+-Client Installation
+* Clone this repository:
+    * `git clone https://github.com/supu4aqua/thinkific-integers-client.git`
+* Move into folder:
+    * `cd thinkific-integers-client/`
+* Run `npm install`
+* Run `npm start`
+* Rename .env.sample to .env
+* Set environemnt variables in .env file
+* In browser, navigate to `localhost:3000` or your specified port
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-Server Installation
+* You will need these programs installed
+    * [Git](https://git-scm.com/)
+    * [Node.js](https://nodejs.org/en/)
+    * [npm](https://www.npmjs.com/)
+    * [MongoDB](https://www.mongodb.com/)
+* You can also create a cluster at https://www.mongodb.com/ instead of installing MongoDb on local system
+* Clone this repository:
+    * `git clone https://github.com/supu4aqua/thinkific-integers-server.git`
+* Move into folder:
+    * `cd thinkific-integers-server/`
+* Run `npm install`
+* Rename .env.sample to .env
+* Set environemnt variables in .env file
+* Run `npm start` (or `npm run dev` to run with nodemon which auto-restarts on save changes)
 
-### `npm run eject`
+## What did you not include in your solution that you want us to know about?
+I couldn't complete the Facebook and Google OAuth from client side. I need to learn OAuth more to fix it.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Other information about your submission that you feel it's important that we know if applicable.
+It's written in Notes section above.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Your feedback on this technical challenge
+Assignment was well explained and documented.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### API Overview
+```
+.
+├── /users/signup
+│   └── POST
+│       └── /
+├── /users/oauth/google
+│   └── POST
+│       └── /
+├── /users/oauth/facebook
+│   └── POST
+│       └── /
+├── /users/signin
+│   └── POST
+│       └── /
+├── /users/v1/current
+│   └── GET
+│       ├── /
+│   └── PUT
+│       └── ?current_integer=
+├── /users/v1/next
+│   └── GET
+│       ├── /
